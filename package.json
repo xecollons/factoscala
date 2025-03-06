@@ -1,7 +1,7 @@
 {
-  "name": "factoscala-chrome-extension",
-  "version": "0.3",
-  "description": "Dejad de preocuparos por Factorial",
+  "name": "fucktorial-chrome-extension",
+  "version": "0.5",
+  "description": "Fuck the Factorial! \nExtension to automate clock-in shifting.",
   "author": "Euyen Esquefa",
   "license": "MIT",
   "main": "dist/index.ts",
