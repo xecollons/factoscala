@@ -1,24 +1,22 @@
 {
   "manifest_version": 3,
-  "name": "FactOscala",
-  "version": "0.3",
-  "description": "Dejad de preocuparos por Factorial",
+  "name": "FuckTorial",
+  "version": "0.5",
+  "description": "Fuck the Factorial! \nExtension to automate clock-in shifting.",
   "background": {
     "service_worker": "js/background.js"
   },
   "action": {
     "default_popup": "popup.html",
     "default_icon": {
-      "16": "oscala_16.png",
-      "32": "oscala_32.png",
-      "48": "oscala_32.png",
-      "128": "oscala_128.png"
+      "16": "assets/icons/icon16.png",
+      "48": "assets/icons/icon48.png",
+      "128": "assets/icons/icon128.png"
     },
     "icon": {
-      "16": "oscala_16.png",
-      "32": "oscala_32.png",
-      "48": "oscala_32.png",
-      "128": "oscala_128.png"
+      "16": "assets/icons/icon16.png",
+      "48": "assets/icons/icon48.png",
+      "128": "assets/icons/icon128.png"
     }
   },
   "permissions": ["declarativeNetRequestWithHostAccess", "activeTab"],

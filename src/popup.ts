@@ -1,11 +1,15 @@
 import { ClockInOptions, ClockInOptionsInterval } from './models';
 
 document.addEventListener('DOMContentLoaded', () => {
-  const intervalsContainer = document.getElementById('intervalsContainer') as HTMLElement;
-  const addIntervalBtn = document.getElementById('addIntervalBtn') as HTMLButtonElement;
+  const intervalsContainer = document.getElementById(
+    'intervalsContainer'
+  ) as HTMLElement;
+  const addIntervalBtn = document.getElementById(
+    'addIntervalBtn'
+  ) as HTMLButtonElement;
   const clockInBtn = document.getElementById('clockInBtn') as HTMLButtonElement;
 
-    const createTimeInput = (name: string, value: string): HTMLInputElement => {
+  const createTimeInput = (name: string, value: string): HTMLInputElement => {
     const input = document.createElement('input');
     input.type = 'time';
     input.name = name;
@@ -15,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   function createNewIntervalInput(
-    clockIn: string = '09:00', 
+    clockIn: string = '09:00',
     clockOut: string = '14:00'
   ): void {
     const intervalDiv = document.createElement('div');
@@ -28,7 +32,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const removeBtn = document.createElement('button');
     removeBtn.type = 'button';
-    removeBtn.textContent = '-';
+
+    const trashIcon = document.createElement('img');
+    trashIcon.src = 'assets/svg/trash.svg';
+    trashIcon.alt = 'Remove';
+    trashIcon.style.width = '14px';
+    trashIcon.style.height = '18px';
+
+    removeBtn.appendChild(trashIcon);
     removeBtn.addEventListener('click', () => intervalDiv.remove());
 
     intervalDiv.appendChild(removeBtn);
@@ -52,8 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
           month = parseInt(match[2]) - 1; // Parece que los meses van de 0 a 11, cosas extrañas de JavaScript
           console.log('Year:', year, 'Month:', month);
         }
-      }
-      else {
+      } else {
         console.error('No se pudo obtener la URL de la pestaña activa');
         var now = new Date();
         month = now.getMonth();
@@ -76,10 +86,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
       console.log('Data to send:', clockInOptions);
 
-      chrome.runtime.sendMessage({ command: 'clockInPressed', params: clockInOptions }, (response) => {
-        console.log('Respuesta recibida:', response);
-        chrome.tabs.reload(tabs[0].id);
-      });
+      chrome.runtime.sendMessage(
+        { command: 'clockInPressed', params: clockInOptions },
+        (response) => {
+          console.log('Respuesta recibida:', response);
+          chrome.tabs.reload(tabs[0].id);
+        }
+      );
     });
   });
 
